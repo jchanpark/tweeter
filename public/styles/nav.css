@@ -1,0 +1,28 @@
+nav {
+  color: #ffffff;
+  height: 120px;
+  background-color: #4056A1;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.logo {
+  font-family: 'Bungee', cursive;
+  font-size: 2.5rem;
+}
+
+.sentence {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+}
+
+.fas {
+  color: red;
+}
