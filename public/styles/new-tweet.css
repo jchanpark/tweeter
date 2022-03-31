@@ -11,7 +11,7 @@
 }
 
 section {
-  width: 90%;
+  width: 100%;
   margin-top: 2rem;
   display: flex;
   flex-direction: column;
@@ -48,7 +48,41 @@ button {
 
 }
 
-div {
+.icon {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.userFace {
+  width: 43px;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+article {
+  width: 100%;
+  border: 2px solid rgb(48, 44, 44);
+  background-color: rgb(206, 201, 201);
+  padding: 32px;
+}
+
+article:hover {
+  box-shadow: rgba(72, 68, 68, 0.921) 2.4px 2.4px 3.2px;
+}
+
+.fa-solid {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 26px;
+}
+
+.fa-solid:hover {
+  color: orange;
+  cursor: pointer;
 }
