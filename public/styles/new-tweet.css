@@ -42,6 +42,10 @@ button {
   background-color: #4056A1;
   border: none;
 }
+.count {
+  display: flex;
+  justify-content: space-between;
+}
 
 .counter {
   font-family: 'Bungee', cursive;
