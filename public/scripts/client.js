@@ -30,8 +30,13 @@
 
 const createTweetElement = function(tweet) {
   const { user, content, created_at } = tweet;
-  // console.log('user[0].avatars', user[0].avatars);
-  // console.log('user', user);
+
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const $tweet = $(
     `<article>
     <header class="user">
@@ -41,7 +46,7 @@ const createTweetElement = function(tweet) {
       <div class="email"><span>${user.handle}</span>
       </div>
     </header>
-    <p>${content.text}</p>
+    <p>${escape(content.text)}</p>
     <footer>
       <div class="lastVisit"><span>${timeago.format(created_at)}</span>                
       </div>
@@ -68,7 +73,6 @@ $(document).ready(function() {
     event.preventDefault();
     
     if (!document.getElementById("tweet-text").value) {
-      // console.log('document.getElementById("tweet-text").value', document.getElementById("tweet-text").value);
       alert("Please enter a message");
       return;
     }
@@ -78,10 +82,9 @@ $(document).ready(function() {
     }
 
     const data = $(this).serialize()
-    $.post('/tweets', data).then( data => {
+    $.post('/tweets', data).then( () => {
       loadTweets();
-    })
-    
+    })    
   });
 
   const loadTweets = function() {
