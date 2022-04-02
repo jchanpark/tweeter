@@ -74,6 +74,7 @@ article {
   border: 2px solid rgb(48, 44, 44);
   background-color: rgb(206, 201, 201);
   padding: 32px;
+  margin-bottom: 5px;
 }
 
 article:hover {
