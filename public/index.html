@@ -9,8 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet"/>    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />  
 
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
@@ -26,17 +25,17 @@
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
 
-
   </head>
 
   <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
+    <!-- Top nav bar (fixed) -->    
+    <nav class="navbar">
       <div class="logo">tweeter</div>
       <div class="sentence"><span><strong>Write</strong> a new tweet</span>
         <i class="fas fa-angle-double-down"></i>
       </div>
     </nav>
+    <div class="body-container">
     <header class="bodyHeader">
       <div class="picture">
           <img src="/images/profile-hex.png"> 
@@ -49,6 +48,8 @@
     <!-- Page-specific (main) content here -->
     <main class="container">
       <section class="new-tweet">
+        <div class="validation1"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp&nbspPlease enter a message.&nbsp&nbsp<i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="validation2"><i class="fa-solid fa-triangle-exclamation"></i>&nbsp&nbspPlease enter a message no more than 140 characters.&nbsp&nbsp<i class="fa-solid fa-triangle-exclamation"></i></div>
         <form id="tweets" action="/tweets/" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
@@ -58,7 +59,7 @@
           </div>
         </form>
         <section class="tweet-component">
-          <!-- <article>
+          <article>
             <header class="user">
               <div class="icon">
                 <img class="userFace" src="https://i.imgur.com/73hZDYK.png"></img><span>Newton</span>
@@ -76,9 +77,9 @@
                 <i class="fa-solid fa-heart"></i>
               </div>
             </footer>
-          </article> -->
+          </article>
         </section>       
       </section>
     </main>
-        </body>
+  </body>
 </html>

@@ -3,40 +3,16 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-[
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png",
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1648673778150
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1648760178150
-  }
-]
 
 const createTweetElement = function(tweet) {
-  const { user, content, created_at } = tweet;
 
-  const escape = function (str) {
+  const escape = function(str) { // prevent cross-site scripting by escape
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
+  const { user, content, created_at } = tweet;
   const $tweet = $(
     `<article>
     <header class="user">
@@ -57,48 +33,45 @@ const createTweetElement = function(tweet) {
       </div>
     </footer>
   </article>`);
-  return $tweet;  
-}
+  return $tweet;
+};
 
 const renderTweets = function(object) {
   for (let tweet in object) {
-    // console.log('object[tweet]', object[tweet]);
     $(".tweet-component").prepend(createTweetElement(object[tweet]));
   }
   return;
-}
+};
+
 $(document).ready(function() {
-  
+  $('.validation1').hide(); // keep validation messages hidden after webpage refreshed
+  $('.validation2').hide();
+
   $('#tweets').submit(function(event) {
-    event.preventDefault();
-    
-    if (!document.getElementById("tweet-text").value) {
-      alert("Please enter a message");
-      return;
-    }
-    if (document.getElementById("tweet-text").value.length > 140) {
-      alert("Please enter a message of less than 140 characters");
-      return;
+    event.preventDefault(); // prevent the synchronous event
+    $('.validation1').hide(); // hide slide down validation messages after submission of the tweet
+    $('.validation2').hide();
+
+    if (!document.getElementById("tweet-text").value) { // if tweet button pressed without a message, validation error message triggered
+      return $('.validation1').slideDown();
     }
 
-    const data = $(this).serialize()
-    $.post('/tweets', data).then( () => {
+    if (document.getElementById("tweet-text").value.length > 140) { // if the user types more than 140 characthers, a validation error message triggered
+      return $('.validation2').slideDown();
+    }
+
+    const data = $(this).serialize();
+    $.post('/tweets', data).then(() => {
       loadTweets();
-    })    
+      this.reset(); // clear the tweet text area after submission of a tweet
+      $(".counter").text(140); // reset the character count to 140 after submission of a tweet
+    });
   });
 
   const loadTweets = function() {
-    $.get("http://localhost:8080/tweets").then( data => {
-      // console.log('data', data);
+    $.get("http://localhost:8080/tweets").then(data => {
       renderTweets(data);
-    })
-  }
+    });
+  };
   loadTweets();
-
-})
-
-
-
-
-
-
+});

@@ -21,6 +21,16 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 
+@media only screen and (min-width: 1024px) {
+  .body-container {
+    display: flex;
+    flex-direction: row;
+    padding: 30px 50px;
+    margin-top: 150px;
+    gap: 50px;
+  }
+}
+
 
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions

@@ -1,3 +1,7 @@
+.body-container {
+  margin-top: 120px;
+}
+
 .container {
   width: 90%;
   display: flex;
@@ -19,6 +23,16 @@ section {
   align-items: center;
 }
 
+.validation1, .validation2 {
+  border: 2px darkred solid;
+  color: darkred;
+  padding: 10px 20px 10px 20px;
+  display: flex;
+  justify-items: center;
+  flex-direction: row;
+  align-items: baseline;
+}
+
 form {
   width: 100%;
 }
@@ -34,6 +48,7 @@ textarea {
   border: none;
   border-bottom: 2px solid darkgrey;
   background-color: transparent;
+  padding: 10px 20px;
 }
 
 button {
@@ -49,7 +64,6 @@ button {
 
 .counter {
   font-family: 'Bungee', cursive;
-
 }
 
 .icon {
@@ -64,6 +78,8 @@ button {
 }
 
 footer {
+  border-top: 2px solid rgb(85, 77, 77);
+  padding-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

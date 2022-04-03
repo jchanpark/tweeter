@@ -1,5 +1,4 @@
 $(document).ready(function() {
-  // console.log(this);
   let len = 140;
   let remainingCharacter;
   $('#tweet-text').on('input', function() {
@@ -11,6 +10,6 @@ $(document).ready(function() {
     } else {
       $('.counter').css("color", "");
     }
-  })
+  });
 });
 
