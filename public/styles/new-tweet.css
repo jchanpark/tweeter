@@ -31,6 +31,7 @@ section {
   justify-items: center;
   flex-direction: row;
   align-items: baseline;
+  margin-bottom: 20px;
 }
 
 form {
@@ -49,6 +50,7 @@ textarea {
   border-bottom: 2px solid darkgrey;
   background-color: transparent;
   padding: 10px 20px;
+  margin-top: 20px;
 }
 
 button {
